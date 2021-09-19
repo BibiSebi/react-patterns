@@ -1,17 +1,12 @@
 import React from "react";
 import "./App.css";
-import { Counter } from "./components/Counter";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
-      <Counter>
-        <Counter.Label>Counter</Counter.Label>
-        <Counter.ButtonWrapper>
-          <Counter.Increment></Counter.Increment>
-          <Counter.Decrement></Counter.Decrement>
-        </Counter.ButtonWrapper>
-      </Counter>
+      <h1>React Patterns</h1>
+      <Home></Home>
     </div>
   );
 }
