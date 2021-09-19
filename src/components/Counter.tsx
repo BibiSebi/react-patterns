@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
-import { FiMinus, FiPlus } from "react-icons/fi";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
+//TODO: replace generated comps and interfaces and types
 export const Container = styled.div`
   color: #224870;
   display: inline-flex;
@@ -36,11 +36,11 @@ export const Button = styled.button`
 
 export type IncrDecrFunc = () => void;
 
-export interface ICounter {
+export interface ICounterCompound {
   Label: React.FC;
-  Increment: React.FC;
-  Decrement: React.FC;
-  ButtonWrapper: React.FC;
+  Increment: React.FC<IButton>;
+  Decrement: React.FC<IButton>;
+  Count: React.FC;
 }
 
 export interface ICounterContext {
@@ -49,16 +49,34 @@ export interface ICounterContext {
   decrement: IncrDecrFunc;
 }
 
+export interface IButton {
+  icon: string | JSX.Element;
+}
+
+// TODO: typing for function
+export interface ICounter {
+  children: React.ReactNode;
+  onChange?: (count: number) => void;
+}
+
 const CounterContext = React.createContext<ICounterContext>({
   counter: 0,
   increment: () => {},
   decrement: () => {},
 });
 
-const Counter: React.FC & ICounter = ({ children }) => {
+const Counter: React.FC<ICounter> & ICounterCompound = ({
+  children,
+  onChange = () => {},
+}) => {
   const [counter, setCounter] = useState(0);
   const increment = () => setCounter(counter + 1);
   const decrement = () => setCounter(counter - 1);
+
+  useEffect(() => {
+    onChange(counter);
+  }, [counter]);
+
   return (
     <CounterContext.Provider value={{ counter, increment, decrement }}>
       <Container>{children}</Container>
@@ -67,41 +85,29 @@ const Counter: React.FC & ICounter = ({ children }) => {
 };
 
 const Label: React.FC = ({ children }) => {
-  const { counter } = useContext(CounterContext);
-  return (
-    <CounterLabel>
-      {children} : {counter}
-    </CounterLabel>
-  );
+  return <div>{children}</div>;
 };
 
-const Increment: React.FC = () => {
+const Count: React.FC = () => {
+  const { counter } = useContext(CounterContext);
+
+  return <CounterLabel>{counter}</CounterLabel>;
+};
+
+const Increment: React.FC<IButton> = ({ icon }) => {
   const { increment } = useContext(CounterContext);
 
-  return (
-    <Button onClick={increment}>
-      <FiPlus />
-    </Button>
-  );
+  return <Button onClick={increment}>{icon}</Button>;
 };
 
-const Decrement: React.FC = () => {
+const Decrement: React.FC<IButton> = ({ icon }) => {
   const { decrement } = useContext(CounterContext);
-  return (
-    <Button onClick={decrement}>
-      {" "}
-      <FiMinus />
-    </Button>
-  );
-};
-
-const ButtonWrapper: React.FC = ({ children }) => {
-  return <ButtonContainer>{children}</ButtonContainer>;
+  return <Button onClick={decrement}>{icon}</Button>;
 };
 
 Counter.Label = Label;
+Counter.Count = Count;
 Counter.Decrement = Decrement;
 Counter.Increment = Increment;
-Counter.ButtonWrapper = ButtonWrapper;
 
 export { Counter };
