@@ -1,3 +1,22 @@
+# React Patterns
+
+Hello in this project I am learning some ways of implementing React components according to some of the React Patterns.
+Below the introduction you can find the project setup if you want to clone and start the code.
+
+## Overview
+
+Currently the project includes the following examples of patterns:
+
+1. Compound Components
+
+## Goal
+
+In order to learn the aforementioned patterns my goal also includes:
+
+1. Testing
+2. Accessibility
+3. Clean Coding
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
