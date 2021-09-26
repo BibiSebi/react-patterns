@@ -1,6 +1,6 @@
 import React from "react";
 import { FiMinus, FiPlus } from "react-icons/fi";
-import { Counter } from "../components/Counter";
+import { Counter } from "../components/compound-components/Counter";
 
 const CompoundComponents = () => {
   const handleChangeCounter = (count: number) => {
