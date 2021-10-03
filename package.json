@@ -50,6 +50,7 @@
     "enzyme-to-json": "^3.6.2",
     "identity-obj-proxy": "^3.0.0",
     "raf": "^3.4.1",
+    "sass": "^1.42.1",
     "styled-components": "^5.3.1",
     "ts-jest": "^27.0.5"
   },
