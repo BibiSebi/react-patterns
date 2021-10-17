@@ -1,4 +1,5 @@
 import React from "react";
+import "./../../../styles/components/form-field/form-field.scss";
 import { IFormFieldCompound } from "./types";
 
 const FormField: React.FunctionComponent & IFormFieldCompound = ({
