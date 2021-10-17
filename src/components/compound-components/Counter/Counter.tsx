@@ -28,7 +28,7 @@ const Counter: React.FC<ICounter> & ICounterCompound = ({
 };
 
 const Label: React.FC = ({ children }) => {
-  return <div>{children}</div>;
+  return <span>{children}</span>;
 };
 
 const Count: React.FC = () => {

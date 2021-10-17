@@ -1,14 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { setToLS } from "../src/utils/local-storage";
+import App from "./App";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { themes } from "./styles/theming/themes";
+
+const Index = () => {
+  setToLS("all-themes", themes);
+  return <App />;
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Index />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

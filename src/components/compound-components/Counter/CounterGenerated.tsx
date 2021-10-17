@@ -22,9 +22,6 @@ export const CounterLabel = styled.span`
 
 export const Button = styled.button`
   display: flex;
-  background: white;
-  color: #d17a22;
-  border: 2px solid #224870;
   align-items: center;
   justify-content: center;
   padding: 5px;
