@@ -25,6 +25,18 @@ export const GlobalStyles = createGlobalStyle`
     color: ${(props: IProps) => props.theme.colors.svg.color}
   }
 
+  input{
+    color:${(props: IProps) => props.theme.colors.text};
+    outline: none;
+    border: ${(props: IProps) => props.theme.colors.text} solid 0.125rem;
+    border-radius: 0.188rem;
+    &:focus{
+      border: ${(props: IProps) =>
+        props.theme.colors.input.outline} solid 0.125rem;
+    }
+  
+  }
+
   button {
     border: 0;
     display: inline-block;

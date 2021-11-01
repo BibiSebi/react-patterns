@@ -11,6 +11,7 @@ const CompoundComponents = () => {
   return (
     <>
       <h2>Counter Example</h2>
+
       <Counter onChange={handleChangeCounter}>
         <Counter.Decrement icon={<FiMinus />}></Counter.Decrement>
         <Counter.Label>Counter</Counter.Label>
@@ -21,7 +22,15 @@ const CompoundComponents = () => {
       <h2>Formfield Example</h2>
       <FormField>
         <FormField.Label>First Name</FormField.Label>
-        <input />
+        <FormField.Input />
+        <FormField.Error>
+          First Name is <strong> requiered</strong>
+        </FormField.Error>
+      </FormField>
+
+      <FormField>
+        <FormField.Label>Last Name</FormField.Label>
+        <FormField.Input />
         <FormField.Error>
           First Name is <strong>requiered</strong>
         </FormField.Error>
