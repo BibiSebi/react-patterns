@@ -14,11 +14,41 @@ export const GlobalStyles = createGlobalStyle`
     border: 2px solid ${(props: IProps) => props.theme.colors.border};
     margin:10px;
     min-height:calc(100vh - 24px);
+    padding:10px;
   }
 
   a {
     color: ${({ theme }) => theme.colors.link.text};
     cursor: pointer;
+  }
+
+  nav.main-nav{
+    display:inline-flex;
+    border:${(props: IProps) => props.theme.colors.text} solid 2px;
+    ol{
+      padding:0;
+      margin:0;
+      li{
+        margin:2px; 
+        padding:2px;
+        position:relative;
+        &:not(:last-of-type){
+          &:before{
+            position:absolute;
+            height:80%;
+            width:2px;
+            content:"";
+            right:-3px;
+            background-color:${(props: IProps) => props.theme.colors.text} ;
+          }
+           
+        }
+        &:hover{
+          background:red;
+        }
+      }
+    }
+
   }
 
   svg{
