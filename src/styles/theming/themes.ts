@@ -15,6 +15,11 @@ export const themes = {
         background: "white",
         border: "#3d5a80",
       },
+      input: {
+        text: "3d5a80",
+        border: "3d5a80",
+        outline: "red",
+      },
       link: {
         text: "#3d5a80",
       },

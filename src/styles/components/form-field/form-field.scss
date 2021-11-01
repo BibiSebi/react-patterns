@@ -1,2 +1,28 @@
 .form-field {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0.625rem;
+
+  &__input {
+    display: inline-flex;
+    position: relative;
+    height: 1.5rem;
+  }
+  &__label {
+    top: 0.15rem;
+    padding: 0 0.125rem;
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    &--shrink {
+      font-size: 0.625rem;
+      left: 0.625rem;
+      top: -0.4rem;
+      background: white;
+    }
+  }
+  &__error {
+    display: none;
+  }
 }
