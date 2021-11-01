@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       <h2>Compound Components Example</h2>
-      <CompoundComponents></CompoundComponents>
+      <CompoundComponents />
     </>
   );
 };

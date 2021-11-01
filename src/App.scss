@@ -1,3 +1,11 @@
-.App {
-  text-align: center;
+.main-nav {
+  &__list {
+    list-style: none;
+    display: inline-flex;
+  }
+  &__list-item {
+    a {
+      text-decoration: none;
+    }
+  }
 }
